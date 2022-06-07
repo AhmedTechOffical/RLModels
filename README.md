@@ -7,4 +7,6 @@ What I did was go to the directory using command prompt where the logs are store
 
 
 tensorboard --logdir "first run_3"
+
+
 It should then provide you with a local host link, copy and paste it to see metrics.
