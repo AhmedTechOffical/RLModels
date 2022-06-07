@@ -12,26 +12,33 @@ env = VecFrameStack(env, n_stack=4)
 
 a2c_path = os.path.join("Training","Saved_Models","A2C_Breakout")
 
-model = A2C.load(a2c_path)
+model = A2C.load(a2c_path, env)
 
 obs = env.reset()
 
-episodes = 5
+episodes = 50
 
+print(evaluate_policy(model, env, n_eval_episodes=5, render=True)) # gives you average reward as well as standard deviation
+
+
+
+#I am leaving this below code as I want to understand why I could do not do what I did under here.
+'''
 for episode in range(1, episodes + 1):
     obs = env.reset()
     done = False
     score = 0
 
     while not done:
-        env.render(mode="rgb_array")
+        env.render()
         action,_states = model.predict(obs)
         n_obs, reward, done, info = env.step(action)
         score += reward
+        
     print("Episode:{} Score:{}".format(episode, score))
 
 env.close()
-
+'''
 '''
 for episodes in range(1,160):
     obs = env.reset()

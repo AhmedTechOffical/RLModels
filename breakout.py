@@ -20,7 +20,13 @@ model = A2C("CnnPolicy",env, verbose=1,tensorboard_log=log_path)
 model.learn(total_timesteps=500_000)
 model.save(a2c_path)
 
-'''
+
+
+
+
+
+
+''' 
 env = gym.make("Breakout-v0", render_mode = "human")
 env = make_atari_env('Breakout-v0', n_envs=1, seed=0)
 env = VecFrameStack(env, n_stack=1)
